@@ -3,6 +3,7 @@ package guru.sfg.beer.order.service.web.mappers;
 import guru.sfg.beer.order.service.domain.BeerOrder;
 import guru.sfg.beer.order.service.domain.BeerOrder.BeerOrderBuilder;
 import guru.sfg.beer.order.service.domain.BeerOrderLine;
+import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.web.models.BeerOrderDto;
 import guru.sfg.beer.order.service.web.models.BeerOrderDto.BeerOrderDtoBuilder;
 import guru.sfg.beer.order.service.web.models.BeerOrderLineDto;
@@ -10,13 +11,14 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.UUID;
 import javax.annotation.processing.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-01-11T22:10:17+0530",
+    date = "2022-01-12T09:49:04+0530",
     comments = "version: 1.3.0.Final, compiler: javac, environment: Java 11.0.11 (OpenLogic)"
 )
 @Component
@@ -35,6 +37,7 @@ public class BeerOrderMapperImpl implements BeerOrderMapper {
 
         BeerOrderDtoBuilder beerOrderDto = BeerOrderDto.builder();
 
+        beerOrderDto.customerId( beerOrderCustomerId( beerOrder ) );
         beerOrderDto.id( beerOrder.getId() );
         beerOrderDto.version( beerOrder.getVersion() );
         beerOrderDto.createdAt( dateMapper.asOffsetDateTime( beerOrder.getCreatedAt() ) );
@@ -63,6 +66,21 @@ public class BeerOrderMapperImpl implements BeerOrderMapper {
         beerOrder.beerOrderLines( beerOrderLineDtoListToBeerOrderLineSet( dto.getBeerOrderLines() ) );
 
         return beerOrder.build();
+    }
+
+    private UUID beerOrderCustomerId(BeerOrder beerOrder) {
+        if ( beerOrder == null ) {
+            return null;
+        }
+        Customer customer = beerOrder.getCustomer();
+        if ( customer == null ) {
+            return null;
+        }
+        UUID id = customer.getId();
+        if ( id == null ) {
+            return null;
+        }
+        return id;
     }
 
     protected List<BeerOrderLineDto> beerOrderLineSetToBeerOrderLineDtoList(Set<BeerOrderLine> set) {

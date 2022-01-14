@@ -7,8 +7,10 @@ C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\domain\OrderStatus.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\mappers\DateMapper.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\CustomerServiceImpl.java
+C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\beer\service\BeerService.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\config\httpclient\ApacheHttpClient.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\domain\BaseEntity.java
+C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\beer\model\BeerDto.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\mappers\CustomerMapper.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\BeerOrderServiceApplication.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\controllers\CustomerController.java
@@ -16,14 +18,14 @@ C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\repository\CustomerRepository.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\controllers\MvcExceptionHandler.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\models\BeerOrderLineDto.java
+C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\mappers\BeerOrderLineDecorator.java
+C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\beer\service\BeerServiceRestTemplate.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\repository\BeerOrderLineRepository.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\models\OrderStatusUpdate.java
-C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\client\BeerServiceClient.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\BeerOrderService.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\bootstrap\BeerOrderBootStrap.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\domain\BeerOrder.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\mappers\BeerOrderMapper.java
-C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\models\BeerDto.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\controllers\BeerOrderController.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\web\controllers\NotFoundException.java
 C:\Users\Rajan\Documents\Java\Microservices\api-brewery\mssc-beer-order-service\src\main\java\guru\sfg\beer\order\service\services\BeerOrderServiceImpl.java

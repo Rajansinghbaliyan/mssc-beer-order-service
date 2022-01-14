@@ -1,6 +1,7 @@
-package guru.sfg.beer.order.service.web.models;
+package guru.sfg.beer.order.service.services.beer.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import guru.sfg.beer.order.service.web.models.BaseItem;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
