@@ -1,6 +1,5 @@
 package guru.sfg.beer.order.service.services;
 
-import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.repository.CustomerRepository;
 import guru.sfg.beer.order.service.web.mappers.CustomerMapper;
 import guru.sfg.beer.order.service.web.models.CustomerDto;

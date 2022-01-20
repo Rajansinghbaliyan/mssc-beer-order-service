@@ -1,5 +1,6 @@
 package guru.sfg.beer.order.service.services;
 
+import guru.sfg.beer.order.service.config.jms.JmsConfig;
 import guru.sfg.beer.order.service.domain.BeerOrder;
 import guru.sfg.beer.order.service.domain.Customer;
 import guru.sfg.beer.order.service.domain.OrderStatus;
@@ -13,6 +14,7 @@ import guru.sfg.beer.order.service.web.models.BeerOrderDto;
 import guru.sfg.beer.order.service.web.models.BeerOrderPagedList;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -27,6 +29,7 @@ public class BeerOrderServiceImpl implements BeerOrderService {
 
     private final BeerOrderMapper beerOrderMapper;
     private final BeerOrderLineMapper beerOrderLineMapper;
+    private final JmsTemplate jmsTemplate;
 
     @Override
     public BeerOrderPagedList listOrders(UUID customerId, Pageable pageable) {
@@ -47,7 +50,11 @@ public class BeerOrderServiceImpl implements BeerOrderService {
         beerOrder.setStatus(OrderStatus.NEW);
         beerOrder.getBeerOrderLines().forEach(line -> line.setBeerOrder(beerOrder));
 
-        return beerOrderMapper.beerOrderToDto(beerOrderRepository.save(beerOrder));
+        BeerOrderDto beerOrderDto1 = beerOrderMapper.beerOrderToDto(beerOrderRepository.save(beerOrder));
+
+        jmsTemplate.convertAndSend(JmsConfig.NEW_ORDER_QUEUE, beerOrderDto1);
+
+        return beerOrderDto1;
     }
 
     @Override

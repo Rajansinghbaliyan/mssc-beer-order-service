@@ -8,7 +8,7 @@ import java.time.ZoneOffset;
 
 @Component
 public class DateMapper {
-    public OffsetDateTime asOffsetDateTime(Timestamp ts){
+    public OffsetDateTime asOffsetDateTime(Timestamp ts) {
         if (ts != null)
             return OffsetDateTime.of(
                     ts.toLocalDateTime().getYear(),
@@ -24,7 +24,7 @@ public class DateMapper {
             return null;
     }
 
-    public Timestamp asTimeStamp(OffsetDateTime offsetDateTime){
+    public Timestamp asTimeStamp(OffsetDateTime offsetDateTime) {
         if (offsetDateTime != null)
             return Timestamp.valueOf(offsetDateTime.atZoneSameInstant(ZoneOffset.UTC).toLocalDateTime());
         else

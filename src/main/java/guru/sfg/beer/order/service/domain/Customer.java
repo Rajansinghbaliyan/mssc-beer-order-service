@@ -18,8 +18,7 @@ import java.util.UUID;
 @Setter
 @Getter
 @NoArgsConstructor
-public class Customer extends BaseEntity{
-
+public class Customer extends BaseEntity {
     @Builder
     public Customer(UUID id, Integer version, Timestamp createdAt, Timestamp lastModifiedAt, String customerName, UUID apiKey, Set<BeerOrder> beerOrders) {
         super(id, version, createdAt, lastModifiedAt);
