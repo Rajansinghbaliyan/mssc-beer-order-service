@@ -12,6 +12,7 @@ import guru.sfg.beer.order.service.web.mappers.BeerOrderLineMapper;
 import guru.sfg.beer.order.service.web.mappers.BeerOrderMapper;
 import guru.sfg.beer.order.service.web.models.BeerOrderDto;
 import guru.sfg.beer.order.service.web.models.BeerOrderPagedList;
+import guru.sfg.common.events.BeerOrderEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.jms.core.JmsTemplate;
@@ -52,14 +53,21 @@ public class BeerOrderServiceImpl implements BeerOrderService {
 
         BeerOrderDto beerOrderDto1 = beerOrderMapper.beerOrderToDto(beerOrderRepository.save(beerOrder));
 
-        jmsTemplate.convertAndSend(JmsConfig.NEW_ORDER_QUEUE, beerOrderDto1);
+        jmsTemplate.convertAndSend(
+                JmsConfig.NEW_ORDER_QUEUE,
+                BeerOrderEvent
+                        .builder()
+                        .beerOrderDto(beerOrderDto1)
+                        .build());
 
         return beerOrderDto1;
     }
 
     @Override
     public BeerOrderDto getOrderById(UUID customerId, UUID orderId) {
-        return null;
+        Customer customer = customerRepository.findById(customerId).orElseThrow(NotFoundException::new);
+        BeerOrder order = beerOrderRepository.findById(orderId).orElseThrow(NotFoundException::new);
+        return beerOrderMapper.beerOrderToDto(order);
     }
 
     @Override

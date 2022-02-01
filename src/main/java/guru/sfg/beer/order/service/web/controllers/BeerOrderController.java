@@ -31,6 +31,14 @@ public class BeerOrderController {
 
     }
 
+    @GetMapping("/{uuid}")
+    public ResponseEntity<BeerOrderDto> findById(@PathVariable UUID customerId,@PathVariable UUID uuid){
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(beerOrderService.getOrderById(customerId,uuid));
+    }
+
     @PostMapping("/")
     public ResponseEntity<BeerOrderDto> placeOrder(@PathVariable UUID customerId, @RequestBody BeerOrderDto beerOrderDto) {
         log.debug("Post Beer Order For Customer: " + customerId);
